@@ -294,11 +294,8 @@ func extractInstrumentation(categories []string) string {
 }
 
 func extractKey(content string) string {
-	// Simple key extraction - look for common patterns
-	// This is a simplified version, could be improved with regex
 	keys := []string{"C major", "C minor", "D major", "D minor", "E major", "E minor",
 		"F major", "F minor", "G major", "G minor", "A major", "A minor", "B major", "B minor"}
-
 	for _, key := range keys {
 		if strings.Contains(content, key) {
 			return key
@@ -308,9 +305,7 @@ func extractKey(content string) string {
 }
 
 func extractOpusNumber(title string) string {
-	// Look for opus numbers in title
 	if strings.Contains(strings.ToLower(title), "op.") {
-		// Simple extraction
 		parts := strings.Split(title, "Op.")
 		if len(parts) > 1 {
 			opNum := strings.TrimSpace(strings.Split(parts[1], ",")[0])
